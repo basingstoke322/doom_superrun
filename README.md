@@ -7,8 +7,7 @@ C:\Users\%USERNAME%\AppData\Local\Microsoft\Windows\WebCache\WebCacheV*.dat
 C:\Users\%USERPROFILE%\AppData\Roaming\Mozilla\Firefox\Profiles\<profile_folder>  
 C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Default  
 C:\Windows\Prefetch  
-C:\Users\<profile>\AppData\Roaming\Microsoft\
-Windows\Start Menu\Programs\Startup  
+C:\Users\<profile>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup  
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup  
 C:\Windows\System32\Tasks\Task_Name  
 С:\Users\<profile>\AppData\Local\Microsoft\Terminal Server Client\Cache  
